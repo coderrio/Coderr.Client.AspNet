@@ -1,21 +1,65 @@
 Integration library for ASP.NET applications
-==========================
+============================================
 
-This library will detect all unhandled exceptions in ASP.NET-based applications and report them to your OneTrueError server (or your account at https://onetrueerror.com).
+[![VSTS](https://1tcompany.visualstudio.com/_apis/public/build/definitions/75570083-b1ef-4e78-88e2-5db4982f756c/14/badge)]() [![NuGet](https://img.shields.io/nuget/dt/codeRR.Client.AspNet.svg?style=flat-square)]()
 
-If you want to get automated handling for one of the ASP.NET derivatives, use the following libraries:
+This library will detect all unhandled exceptions in ASP.NET-based applications and report them to your codeRR server (or your account at https://coderrapp.com).
 
-* [ASP.NET MVC5](https://github.com/onetrueerror/onetrueerror.client.aspnet.mvc5)
-* [ASP.NET WebApi2](https://github.com/onetrueerror/onetrueerror.client.aspnet.webapi2)
+If you want to get automated exception handling for one of the ASP.NET-based libraries, use the following packages:
+
+* [ASP.NET MVC5](https://github.com/coderrapp/coderr.client.aspnet.mvc5)
+* [ASP.NET WebApi2](https://github.com/coderrapp/coderr.client.aspnet.webapi2)
+* [ASP.NET Core MVC](https://www.nuget.org/packages/codeRR.Client.AspNetCore.Mvc/)
+
+# Installation
+
+1. Download and install the [codeRR server](https://github.com/coderrapp/coderr.server) or create an account at [coderrapp.com](https://coderrapp.com)
+2. Install this client library (using nuget `coderr.client.aspnet`)
+3. Configure the credentials from your codeRR account in your `global.asax`.
+
+```csharp
+public class Global : System.Web.HttpApplication
+{
+
+	protected void Application_Start(object sender, EventArgs e)
+	{
+		//replace with your server URL and your appkey/SharedSecret.
+		var uri = new Uri("https://report.coderrapp.com/");
+		Err.Configuration.Credentials(uri,
+			"yourAppKey",
+			"yourSharedSecret");
 
 
-To report exceptions manually in your controller, use `OneTrue.Report(exception)`, OneTrueError will include information about the HttpRequest, QueryString, Form, Session etc when your exception is reported.
+		Err.Configuration.CatchAspNetExceptions();
+	}
+}
+```
+
+# Manually reporting exceptions
+
+All unhandled exceptions are reported automatically by this library. 
+But sometimes you need to deal with exceptions yourself. 
+
+```csharp
+public void UpdatePost(int uid, ForumPost post)
+{
+	try
+	{
+		_service.Update(uid, post);
+	}
+	catch (Exception ex)
+	{
+		Err.Report(ex, new{ UserId = uid, ForumPost = post });
+	}
+}
+```
+
 
 # Context collections
 
 This library includes the following context collections for every reported exceptions:
 
-* All in the [core library](https://github.com/onetrueerror/onetrueerror.client)
+* All in the [core library](https://github.com/coderrapp/coderr.client)
 * Application collection
 * Form data
 * Http headers
@@ -23,11 +67,11 @@ This library includes the following context collections for every reported excep
 * Session data
 * Uploaded files
 
-# Getting started
+# Requirements
 
-1. Download and install the [OneTrueError server](https://github.com/onetrueerror/onetrueerror.server) or create an account at [OneTrueError.com](https://onetrueerror.com)
-2. Install this client library (using nuget `onetrueerror.client.aspnet`)
-3. Configure the credentials from your OneTrueError account in your `Global.asax`
-4. Add `OneTrue.Configuration.CatchAspNetExceptions()` in your `Global.asax`
+You need to either install [codeRR Community Server](https://github.com/coderrapp/coderr.server) or use [codeRR Live](https://coderrapp.com/live).
 
-Done.
+# More information
+
+* [Questions/Help](http://discuss.coderrapp.com)
+* [Documentation](https://coderrapp.com/documentation/client/libraries/aspnet/)
