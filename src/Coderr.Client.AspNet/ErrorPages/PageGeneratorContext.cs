@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Web;
 
-namespace codeRR.Client.AspNet.ErrorPages
+namespace Coderr.Client.AspNet.ErrorPages
 {
     /// <summary>
     ///     Context for the page generator

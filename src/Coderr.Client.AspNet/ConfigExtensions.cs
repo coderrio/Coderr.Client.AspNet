@@ -1,11 +1,11 @@
-﻿using codeRR.Client.AspNet.ContextProviders;
-using codeRR.Client.AspNet.ErrorPages;
-using codeRR.Client.Config;
+﻿using Coderr.Client.AspNet.ContextProviders;
+using Coderr.Client.AspNet.ErrorPages;
+using Coderr.Client.Config;
 
 // Keeps in the root namespace to get IntelliSense
 
 // ReSharper disable once CheckNamespace
-namespace codeRR.Client
+namespace Coderr.Client
 {
     /// <summary>
     ///     Extensions for the <see cref="Err" /> configuration class.
@@ -15,7 +15,7 @@ namespace codeRR.Client
         internal static bool CatchExceptions;
 
         internal static IErrorPageGenerator ErrorPageGenerator =
-            new EmbeddedResourceGenerator(typeof(ConfigExtensions).Assembly, "codeRR.Client.AspNet.Views");
+            new EmbeddedResourceGenerator(typeof(ConfigExtensions).Assembly, "Coderr.Client.AspNet.Views");
 
         /// <summary>
         ///     Activate the ASP.NET error catching library

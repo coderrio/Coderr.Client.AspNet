@@ -7,7 +7,7 @@ using System.Web.Compilation;
 using System.Web.Hosting;
 using System.Web.UI;
 
-namespace codeRR.Client.AspNet
+namespace Coderr.Client.AspNet
 {
     /// <summary>
     ///     Helper function for building an codeRR error page.

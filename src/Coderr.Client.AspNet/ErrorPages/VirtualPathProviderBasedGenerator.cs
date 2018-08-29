@@ -3,7 +3,7 @@ using System.Configuration;
 using System.Web;
 using System.Web.Hosting;
 
-namespace codeRR.Client.AspNet.ErrorPages
+namespace Coderr.Client.AspNet.ErrorPages
 {
     /// <summary>
     ///     Uses <see cref="VirtualPathProvider" /> to load error pages.

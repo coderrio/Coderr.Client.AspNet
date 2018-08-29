@@ -1,4 +1,4 @@
-﻿namespace codeRR.Client.AspNet.ErrorPages
+﻿namespace Coderr.Client.AspNet.ErrorPages
 {
     /// <summary>
     ///     Used to generate error pages.

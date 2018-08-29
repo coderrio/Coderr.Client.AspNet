@@ -2,7 +2,7 @@
 using System.IO;
 using System.Web;
 
-namespace codeRR.Client.AspNet.Demo
+namespace Coderr.Client.AspNet.Demo
 {
     public partial class Default : System.Web.UI.Page
     {

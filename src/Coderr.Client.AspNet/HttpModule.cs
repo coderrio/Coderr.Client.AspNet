@@ -3,17 +3,17 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-using codeRR.Client.AspNet;
-using codeRR.Client.AspNet.ErrorPages;
-using codeRR.Client.ContextCollections;
-using codeRR.Client.Contracts;
-using codeRR.Client.Uploaders;
+using Coderr.Client.AspNet;
+using Coderr.Client.AspNet.ErrorPages;
+using Coderr.Client.ContextCollections;
+using Coderr.Client.Contracts;
+using Coderr.Client.Uploaders;
 
 // This attribute is automatically picked up by ASP.NET/WebPages.
 
 [assembly: PreApplicationStartMethod(typeof(HttpModule), "Register")]
 
-namespace codeRR.Client.AspNet
+namespace Coderr.Client.AspNet
 {
     /// <summary>
     ///     HTTP module which codeRR uses to be able to catch exceptions.

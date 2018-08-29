@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace codeRR.Client.AspNet.Headers
+namespace Coderr.Client.AspNet.Headers
 {
     /// <summary>
     ///     A group of content-types which we've received in the HTTP header "Accept" from the browser.

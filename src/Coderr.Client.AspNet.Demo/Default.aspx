@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="codeRR.Client.AspNet.Demo.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Coderr.Client.AspNet.Demo.Default" %>
 
 <!DOCTYPE html>
 

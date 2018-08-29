@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace codeRR.Client.AspNet
+namespace Coderr.Client.AspNet
 {
     /// <summary>
     ///     <para>

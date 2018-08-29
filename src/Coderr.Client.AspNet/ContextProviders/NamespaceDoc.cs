@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace codeRR.Client.AspNet.ContextProviders
+namespace Coderr.Client.AspNet.ContextProviders
 {
     /// <summary>
     ///     Context providers for ASP.NET.

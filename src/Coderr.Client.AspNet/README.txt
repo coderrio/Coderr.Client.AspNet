@@ -1,24 +1,29 @@
-﻿codeRR ASP.NET package
-=====================
+﻿Coderr ASP.NET package
+======================
 
-Welcome to codeRR! 
+This is an automation library for Coderr in ASP.NET applications.
+You also need a Coderr Server.
 
-We try to answer questions as fast as we can at our forum: http://discuss.coderrapp.com. 
-If you have any trouble at all, don't hesitate to post a message there.
+Getting started help:
+https://coderr.io/documentation/getting-started/
 
-This library is the client library of codeRR. What it does is to report exceptions to codeRR.
-
-However, this library do not process the information but require a codeRR server for that.
-You can either install the open source server from https://github.com/coderrapp/coderr.server, or
-use our hosted service at https://coderrapp.com/live.
+ASP.NET configuration:
+https://coderr.io/documentation/client/libraries/aspnet/
 
 
-Configuration
-=============
+Alternative packages:
 
-To start with, you need to configure the connection to the codeRR server, 
+* Coderr.Client.AspNet.Mvc5 - Better integration for ASP.NET MVC5 applications
+* Coderr.Client.AspNet.WebApi2 - Better integration for ASP.NET WebApi 2.x applications
+* Coderr.Client.AspNetCore.Mvc - Better integration for ASP.NET Core MVC applications
+
+
+Quick start
+===========
+
+To start with, you need to configure the connection to the Coderr server, 
 this code is typically added in your Global.asax. This information is found either
-in our hosted service or in your installed codeRR server.
+in our hosted service or in your installed Coderr server.
 
     public class Global : System.Web.HttpApplication
     {
@@ -26,22 +31,21 @@ in our hosted service or in your installed codeRR server.
         protected void Application_Start(object sender, EventArgs e)
         {
             //replace with your server URL and your appkey/SharedSecret.
-            var uri = new Uri("http://localhost/OneTrueError/");
+            var uri = new Uri("http://localhost/coderr/");
             Err.Configuration.Credentials(uri,
-                "5f219f356daa40b3b31dfc67514df6d6",
-                "22612e4444f347d1bb3d841d64c9750a");
+                "yourAppKey",
+                "yourSharedSecret");
 
 
             Err.Configuration.CatchAspNetExceptions();
         }
     }
 
-There are more configuration options available:
-https://coderrapp.com/documentation/client/libraries/aspnet/
 
 
-Reporting exceptions
-====================
+
+Reporting errors manually
+=========================
 
 This is one of many examples:
 
@@ -61,7 +65,9 @@ This is one of many examples:
         // some other code here...
     }
 
-Questions? http://discuss.coderrapp.com
-Documentation: https://coderrapp.com/documentation/client/libraries/aspnet/
 
+Questions:
+https://discuss.coderr.io
 
+Guides and support
+https://coderr.io/guides-and-support/

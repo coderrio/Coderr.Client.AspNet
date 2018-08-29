@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.UI;
 
-namespace codeRR.Client.AspNet.ErrorPages
+namespace Coderr.Client.AspNet.ErrorPages
 {
     /// <summary>
     ///     Generate error pages from embedded resources.

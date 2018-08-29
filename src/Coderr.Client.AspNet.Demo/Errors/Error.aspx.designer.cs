@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace codeRR.Client.AspNet.Demo.Errors {
+namespace Coderr.Client.AspNet.Demo.Errors {
     
     
     public partial class Error {

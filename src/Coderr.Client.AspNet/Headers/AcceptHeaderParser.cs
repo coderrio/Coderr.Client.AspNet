@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace codeRR.Client.AspNet.Headers
+namespace Coderr.Client.AspNet.Headers
 {
     /// <summary>
     ///     Small utility class used to parse the "Accept" HTTP header.

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace codeRR.Client.AspNet.Demo.Errors
+namespace Coderr.Client.AspNet.Demo.Errors
 {
     public partial class Error : System.Web.UI.Page
     {

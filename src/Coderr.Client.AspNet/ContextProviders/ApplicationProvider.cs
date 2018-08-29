@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Web;
 using Newtonsoft.Json;
-using codeRR.Client.ContextProviders;
-using codeRR.Client.Contracts;
-using codeRR.Client.Reporters;
+using Coderr.Client.ContextProviders;
+using Coderr.Client.Contracts;
+using Coderr.Client.Reporters;
 
-namespace codeRR.Client.AspNet.ContextProviders
+namespace Coderr.Client.AspNet.ContextProviders
 {
     /// <summary>
     ///     Collects all items from the application collection in <c>HttpContext</c>.

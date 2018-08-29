@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web;
-using codeRR.Client.Reporters;
+using Coderr.Client.Reporters;
 
-namespace codeRR.Client.AspNet
+namespace Coderr.Client.AspNet
 {
     /// <summary>
     ///     Context used when collecting error information (when an error have been caught).

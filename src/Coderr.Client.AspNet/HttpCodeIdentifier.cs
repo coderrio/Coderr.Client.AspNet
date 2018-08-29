@@ -3,7 +3,7 @@ using System.Net;
 using System.Security;
 using System.Web;
 
-namespace codeRR.Client.AspNet
+namespace Coderr.Client.AspNet
 {
     /// <summary>
     ///     Tries to Identity the correct HTTP code

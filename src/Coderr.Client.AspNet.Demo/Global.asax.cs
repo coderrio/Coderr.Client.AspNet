@@ -1,7 +1,8 @@
 ﻿using System;
-using codeRR.Client.AspNet.ErrorPages;
+using Coderr.Client;
+using Coderr.Client.AspNet.ErrorPages;
 
-namespace codeRR.Client.AspNet.Demo
+namespace Coderr.Client.AspNet.Demo
 {
     public class Global : System.Web.HttpApplication
     {
@@ -9,12 +10,15 @@ namespace codeRR.Client.AspNet.Demo
         protected void Application_Start(object sender, EventArgs e)
         {
             //replace with your server URL and your appkey/SharedSecret.
-            var uri = new Uri("http://localhost/OneTrueError/");
-            Err.Configuration.Credentials(uri,
-                "5f219f356daa40b3b31dfc67514df6d6",
-                "22612e4444f347d1bb3d841d64c9750a");
+            var url = new Uri("http://localhost:50473/");
+            Err.Configuration.Credentials(url, 
+                "fc1ab5989af040afb782b69683fbf459", 
+                "972a3489a1ba42858234742bbe41709a");
 
-            //Err.Configuration.SetErrorPageGenerator(new VirtualPathProviderBasedGenerator("~/Errors/"));
+            Err.Configuration.SetErrorPageGenerator(new VirtualPathProviderBasedGenerator("~/Errors/"));
+            Err.Configuration.UserInteraction.AskUserForPermission = true;
+            Err.Configuration.UserInteraction.AskForEmailAddress = true;
+            Err.Configuration.UserInteraction.AskUserForDetails = true;
             Err.Configuration.CatchAspNetExceptions();
         }
 

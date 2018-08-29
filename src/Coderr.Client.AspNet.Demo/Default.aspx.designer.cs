@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace codeRR.Client.AspNet.Demo {
+namespace Coderr.Client.AspNet.Demo {
     
     
     public partial class Default {
