@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web;
-using Coderr.Client.ContextProviders;
+using Coderr.Client.ContextCollections;
 using Coderr.Client.Contracts;
 using Coderr.Client.Reporters;
 
@@ -11,7 +11,7 @@ namespace Coderr.Client.AspNet.ContextProviders
     ///     <c>HttpRequestFiles</c>.
     /// </summary>
     /// <remarks>Collects name, content type and file name.</remarks>
-    public class FileProvider : IContextInfoProvider
+    public class FileProvider : IContextCollectionProvider
     {
         /// <summary>
         ///     Gets "HttpRequestFiles"

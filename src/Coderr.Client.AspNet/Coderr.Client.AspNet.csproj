@@ -2,22 +2,22 @@
   <PropertyGroup>
     <TargetFrameworks>net451;net46</TargetFrameworks>
     <PackageId>Coderr.Client.AspNet</PackageId>
-    <Authors>1TCompany AB</Authors>
     <Description>Automates exception handling for ASP.NET applications</Description>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Copyright>© 2017 1TCompany AB. All rights reserved.</Copyright>
-    <PackageTags>logger exceptions analysis asp.net</PackageTags>
-    <PackageIconUrl>https://coderrapp.com/images/nuget_icon.png</PackageIconUrl>
-    <RepositoryUrl>https://github.com/coderrapp/coderr.client.aspnet</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageLicenseUrl>https://github.com/coderrapp/coderr.client.aspnet/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://coderrapp.com</PackageProjectUrl>
-    <Version>1.1.0</Version>
-    <PackageReleaseNotes>Bumped version of core package and changed namespaces</PackageReleaseNotes>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <RootNamespace>Coderr.Client.AspNet</RootNamespace>
+    <Version>2.0.0</Version>
+    <PackageReleaseNotes>Now based on the new core package.</PackageReleaseNotes>
   </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Authors>Coderr AB</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Copyright>© 2020 Coderr AB. All rights reserved.</Copyright>
+    <PackageTags>logger exceptions analysis asp.net</PackageTags>
+    <PackageIcon>NugetIcon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/coderrio/coderr.client.aspnet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://coderr.io</PackageProjectUrl>
     <DocumentationFile>bin\Debug\$(TargetFramework)\Coderr.Client.AspNet.xml</DocumentationFile>
   </PropertyGroup>
   
@@ -32,13 +32,14 @@
   
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0.0" />
-    <PackageReference Include="Coderr.Client" Version="1.1.0" />
+    <PackageReference Include="Coderr.Client" Version="2.0.2" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.txt">
       <Pack>true</Pack>
       <PackagePath>README.txt</PackagePath>
     </Content>
+    <None Include="Nuget/NugetIcon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
   <ItemGroup>

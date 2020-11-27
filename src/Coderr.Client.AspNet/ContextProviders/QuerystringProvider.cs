@@ -1,5 +1,6 @@
-﻿using System.Web;
-using Coderr.Client.ContextProviders;
+﻿using System.Collections.Generic;
+using System.Web;
+using Coderr.Client.ContextCollections;
 using Coderr.Client.Contracts;
 using Coderr.Client.Reporters;
 
@@ -9,7 +10,7 @@ namespace Coderr.Client.AspNet.ContextProviders
     ///     Adds a HTTP request query string collection.
     /// </summary>
     /// <remarks>The name of the collection is <c>HttpQueryString</c></remarks>
-    public class QueryStringProvider : IContextInfoProvider
+    public class QueryStringProvider : IContextCollectionProvider
     {
         /// <summary>
         ///     Gets "HttpQueryString"
@@ -27,7 +28,14 @@ namespace Coderr.Client.AspNet.ContextProviders
             if (HttpContext.Current == null || HttpContext.Current.Request.QueryString.Count == 0)
                 return null;
 
-            return new ContextCollectionDTO("HttpQueryString", HttpContext.Current.Request.QueryString);
+
+            var myItems = new Dictionary<string, string>();
+            foreach (string header in HttpContext.Current.Request.QueryString)
+            {
+                myItems[header] = HttpContext.Current.Request.QueryString[header];
+            }
+
+            return new ContextCollectionDTO("HttpQueryString", myItems);
         }
     }
 }

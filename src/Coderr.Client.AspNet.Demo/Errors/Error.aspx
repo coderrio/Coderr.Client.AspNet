@@ -13,10 +13,10 @@
             <h1>General error!</h1>
             <p>this is just a sample of custom error pages.</p>
             <p>You can create your own, or uncomment <code>Err.Configuration.SetErrorPageGenerator</code> in global.asax to view the built in ones.</p>
-            <textarea name="Description"></textarea>
-            <input type="email" name="email" placeholder="Email"/>
+            <textarea name="Description"></textarea><br/>
+            <input type="email" name="email" placeholder="Email"/><br/>
             <input type="checkbox" name="Allowed" value="true" checked="$AllowReportUploading$" />
-            I allow thy to collect the additional information.
+            I allow thy to collect the additional information.<br/>
             <input type="submit" value="SEND"/>
         </div>
     </form>

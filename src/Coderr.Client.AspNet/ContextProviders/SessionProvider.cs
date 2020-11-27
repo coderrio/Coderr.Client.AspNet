@@ -1,7 +1,9 @@
-﻿using System.Web;
-using Coderr.Client.ContextProviders;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Net.Http.Headers;
+using System.Web;
+using Coderr.Client.ContextCollections;
 using Coderr.Client.Contracts;
-using Coderr.Client.Converters;
 using Coderr.Client.Reporters;
 
 namespace Coderr.Client.AspNet.ContextProviders
@@ -13,7 +15,7 @@ namespace Coderr.Client.AspNet.ContextProviders
     ///     <para>The name of the collection is <c>HttpSession</c>.</para>
     ///     <para>Session objects are serialized as JSON, strings are added as-is.</para>
     /// </remarks>
-    public class SessionProvider : IContextInfoProvider
+    public class SessionProvider : IContextCollectionProvider
     {
         /// <summary>
         ///     Gets "HttpSession"
@@ -31,7 +33,25 @@ namespace Coderr.Client.AspNet.ContextProviders
                 return null;
 
             var converter = new ObjectToContextCollectionConverter();
-            return converter.Convert("HttpSession", HttpContext.Current.Session);
+            var items = new Dictionary<string, string>();
+            foreach (string key in HttpContext.Current.Session.Keys)
+            {
+                var value = HttpContext.Current.Session[key];
+                switch (value)
+                {
+                    case string _:
+                        converter.ConvertToDictionary(key, value, items);
+                        break;
+                    case IEnumerable _:
+                        converter.ConvertToDictionary($"{key}.", value, items);
+                        break;
+                    default:
+                        converter.ConvertToDictionary(key, value, items);
+                        break;
+                }
+            }
+
+            return new ContextCollectionDTO(Name, items);
         }
     }
 }

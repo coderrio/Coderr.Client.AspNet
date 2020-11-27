@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web;
+using Coderr.Client.ContextCollections;
 using Newtonsoft.Json;
-using Coderr.Client.ContextProviders;
 using Coderr.Client.Contracts;
 using Coderr.Client.Reporters;
 
@@ -11,7 +11,7 @@ namespace Coderr.Client.AspNet.ContextProviders
     /// <summary>
     ///     Collects all items from the application collection in <c>HttpContext</c>.
     /// </summary>
-    public class ApplicationProvider : IContextInfoProvider
+    public class ApplicationProvider : IContextCollectionProvider
     {
         /// <summary>Collect information</summary>
         /// <param name="context">Context information provided by the class which reported the error.</param>
@@ -21,6 +21,11 @@ namespace Coderr.Client.AspNet.ContextProviders
             var items = new Dictionary<string, string>();
             foreach (var key in HttpContext.Current.Application.AllKeys)
             {
+                if (key == HttpModule.ErrorReportDtoName)
+                {
+                    continue;
+                }
+
                 var value = HttpContext.Current.Application[key];
                 if (value == null)
                 {

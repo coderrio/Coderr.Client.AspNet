@@ -29,7 +29,7 @@ namespace Coderr.Client.AspNet
     /// </remarks>
     public class HttpModule : IHttpModule
     {
-        private static readonly TempData TempData = new TempData();
+        internal const string ErrorReportDtoName = "ErrorReportDTO";
 
         /// <summary>
         ///     Initializes a module and prepares it to handle requests.
@@ -93,7 +93,7 @@ namespace Coderr.Client.AspNet
                     collection.Properties.Add("HttpCode", context.HttpStatusCode.ToString());
 
             if (Err.Configuration.UserInteraction.AskUserForPermission)
-                TempData[dto.ReportId] = dto;
+                app.Application[ErrorReportDtoName] = dto;
             else
                 Err.UploadReport(dto);
 
@@ -125,18 +125,20 @@ namespace Coderr.Client.AspNet
             if (string.IsNullOrEmpty(reportId))
                 return;
 
-            var reportDTO = (ErrorReportDTO) TempData[reportId];
+            
+            var reportDto = app.Application[ErrorReportDtoName] as ErrorReportDTO;
 
             //Not allowed to upload report.
             if (app.Request.Form["Allowed"] != "true" && Err.Configuration.UserInteraction.AskUserForPermission)
                 return;
 
-            if (reportDTO != null)
-                Err.UploadReport(reportDTO);
+            if (reportDto != null)
+                Err.UploadReport(reportDto);
 
-            var info = new UserSuppliedInformation(app.Request.Form["Description"], app.Request.Form["email"]);
-            if (!string.IsNullOrEmpty(info.Description) || !string.IsNullOrEmpty(info.EmailAddress))
-                Err.LeaveFeedback(reportId, info);
+            var email = app.Request.Form["email"];
+            var description = app.Request.Form["Description"];
+            if (!string.IsNullOrEmpty(email) || !string.IsNullOrEmpty(description))
+                Err.LeaveFeedback(reportId, email, description);
 
             app.Response.Redirect("~/");
             app.Response.End();
