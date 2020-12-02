@@ -32,7 +32,7 @@
   
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.Infrastructure" Version="1.0.0.0" />
-    <PackageReference Include="Coderr.Client" Version="2.0.2" />
+    <PackageReference Include="Coderr.Client" Version="2.0.3" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.txt">
