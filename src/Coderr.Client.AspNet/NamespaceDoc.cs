@@ -34,8 +34,8 @@ namespace Coderr.Client.AspNet
     /// {
     ///     protected void Application_Start()
     ///     {
-    ///         // The appkey and shared key can be found in coderrapp.com
-    ///         var url = new Uri("https://report.coderrapp.com");
+    ///         // The appkey and shared key can be found in coderr.io
+    ///         var url = new Uri("https://report.coderr.io");
     ///         Err.Configuration.Credentials(url, "yourAppKey", "yourSharedSecret");
     ///         Err.Configuration.CatchAspNetExceptions();
     ///     }

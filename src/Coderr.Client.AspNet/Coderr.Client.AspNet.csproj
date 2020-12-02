@@ -3,8 +3,8 @@
     <TargetFrameworks>net451;net46</TargetFrameworks>
     <PackageId>Coderr.Client.AspNet</PackageId>
     <Description>Automates exception handling for ASP.NET applications</Description>
-    <Version>2.0.0</Version>
-    <PackageReleaseNotes>Now based on the new core package.</PackageReleaseNotes>
+    <Version>2.0.1</Version>
+    <PackageReleaseNotes>Moved from coderrapp.com to coderr.io.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup>
