@@ -7,7 +7,7 @@
     <PackageReleaseNotes>Now based on the new core package.</PackageReleaseNotes>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup>
     <Authors>Coderr AB</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -18,7 +18,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://coderr.io</PackageProjectUrl>
-    <DocumentationFile>bin\Debug\$(TargetFramework)\Coderr.Client.AspNet.xml</DocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Coderr.Client.AspNet.xml</DocumentationFile>
   </PropertyGroup>
   
   <ItemGroup>
